@@ -1,0 +1,8 @@
+<label>
+  Phone Number:
+  <input #phoneNumber type="text" name="Phone Number">
+  <button (click)="search(phoneNumber.value)">Search</button>
+</label>
+<div *ngIf="customer" class="search-result">
+  <div class="search-result-customer-name"><a routerLink="/customer/{{customer.id}}">{{customer.name}}</a></div>
+</div>

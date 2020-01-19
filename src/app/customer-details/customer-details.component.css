@@ -1,0 +1,35 @@
+.customer-details-services-service{
+  margin: 5px 5px 5px 5px;
+  background: #9AD2CB;
+  border-radius: 4px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.customer-details-services-service-name {
+  margin-left: 15px;
+}
+
+.customer-details-services-service-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.customer-details-customer {
+  background: #D7EBBA;
+  margin: 5px 5px 5px 5px;
+  height: 60px;
+  border-radius: 4px;
+  font: caption;
+  display: flex;
+  align-items: center;
+}
+
+.customer-details-customer-content {
+  margin: 8px 20px 8px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 8px;
+}

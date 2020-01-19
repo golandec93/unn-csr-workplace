@@ -1,0 +1,18 @@
+<label>Customer:</label>
+<div *ngIf="customer" class="customer-details-customer">
+  <div class="customer-details-customer-content">
+    <label class="customer-details-customer-content-label">ID:</label><span>{{customer.id}}</span>
+    <label class="customer-details-customer-content-label">Name:</label><span>{{customer.name}}</span>
+  </div>
+</div>
+<label>Services:</label>
+<div *ngIf="services" class="customer-details-services">
+  <div *ngFor="let service of services" class="customer-details-services-service">
+    <div class="customer-details-services-service-content">
+      <span class="customer-details-services-service-id">{{service.id}}</span>
+      <span class="customer-details-services-service-name">
+        <a routerLink="/service/{{service.id}}">{{service.name}}</a>
+      </span>
+    </div>
+  </div>
+</div>

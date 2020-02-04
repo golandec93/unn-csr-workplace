@@ -1,8 +1,17 @@
-<label>
-  Phone Number:
-  <input #phoneNumber type="text" name="Phone Number">
-  <button (click)="search(phoneNumber.value)">Search</button>
-</label>
-<div *ngIf="customer" class="search-result">
-  <div class="search-result-customer-name"><a routerLink="/customer/{{customer.id}}">{{customer.name}}</a></div>
+<div class="component">
+  <div class="object-header">
+    Customer Search
+  </div>
+  <div class="search-input">
+    <label>
+      Phone Number:
+      <input #phoneNumber type="text" name="Phone Number" placeholder="9(999)-999 99 99" mask="9(999)-999 99 99">
+      <button (click)="search(phoneNumber.value)">Search</button>
+    </label>
+  </div>
+  <div *ngIf="customer" class="search-result">
+    <div class="search-result-customer-name">
+      <a routerLink="/customer/{{customer.id}}">{{customer.firstName}} {{customer.lastName}}</a>
+    </div>
+  </div>
 </div>

@@ -1,18 +1,26 @@
-<label>Customer:</label>
-<div *ngIf="customer" class="customer-details-customer">
-  <div class="customer-details-customer-content">
-    <label class="customer-details-customer-content-label">ID:</label><span>{{customer.id}}</span>
-    <label class="customer-details-customer-content-label">Name:</label><span>{{customer.name}}</span>
+<div class="component">
+  <div class="object-header">
+    <label>Customer details</label>
   </div>
-</div>
-<label>Services:</label>
-<div *ngIf="services" class="customer-details-services">
-  <div *ngFor="let service of services" class="customer-details-services-service">
-    <div class="customer-details-services-service-content">
-      <span class="customer-details-services-service-id">{{service.id}}</span>
-      <span class="customer-details-services-service-name">
-        <a routerLink="/service/{{service.id}}">{{service.name}}</a>
-      </span>
+  <div class="object-details">
+    <div *ngIf="customer" class="object-details-content">
+      <div class="object-details-grid">
+        <label class="customer-details-customer-content-label">ID:</label><span>{{customer.id}}</span>
+        <label class="customer-details-customer-content-label">Name:</label><span>{{customer.firstName}} {{customer.lastName}}</span>
+      </div>
+    </div>
+    <div class="object-children-records">
+      <label>Services</label>
+      <div *ngIf="services" class="object-children-records-content">
+        <div *ngFor="let service of services" class="object-children-record">
+          <div class="object-children-record-content">
+            <span class="child-status"
+                  [ngClass]="{'fail': 2===service.serviceStatus?.id, 'normal': 1===service.serviceStatus?.id}"></span>
+            <span class="customer-details-services-service-name"><a
+              routerLink="/service/{{service.id}}">{{service.name}}</a></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

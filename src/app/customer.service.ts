@@ -1,23 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Customer} from './model/customer.model';
-import {randomId} from './stub-utils';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  constructor() { }
-
-  getCustomerById(customerId: number): Customer {
-    const customer = new Customer();
-    customer.id = customerId;
-    customer.name = 'Customer #' + customer.id;
-    return customer;
+  constructor(private httpClient: HttpClient) {
   }
 
-  getCustomerByPhoneNumber(phoneNumber: string): Customer {
-    return this.getCustomerById(randomId());
+  public getCustomerById(customerId: number): Observable<Customer> {
+    return this.httpClient.get<Customer>(environment.backend + `/customers/${customerId}`);
+  }
+
+  public getCustomerByPhoneNumber(phoneNumber: string): Observable<Customer> {
+    return this.httpClient.get<Customer>(environment.backend + '/customers/search/getCustomerByPhoneNumber', {params: {phoneNumber}});
   }
 
 }

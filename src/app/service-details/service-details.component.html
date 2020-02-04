@@ -1,16 +1,25 @@
-<label>Service:</label>
-<div *ngIf="service" class="service-details-service">
-  <div class="service-details-service-content">
-    <label class="service-details-service-content-label">ID:</label><span>{{service.id}}</span>
-    <label class="service-details-service-content-label">Name:</label><span>{{service.name}}</span>
+<div class="component">
+  <div class="object-header">
+    <label>Service</label>
   </div>
-</div>
-<label>Equipment:</label>
-<div *ngIf="equipment" class="service-details-equipment">
-  <div *ngFor="let equip of equipment" class="service-details-equipment-line">
-    <div class="service-details-equipment-line-content">
-      <span class="service-details-equipment-line-id">{{equip.id}}</span>
-      <span class="service-details-equipment-line-name">{{equip.name}}</span>
+  <div class="object-details">
+    <div *ngIf="service" class="object-details-content">
+      <div class="object-details-grid">
+        <label class="service-details-service-content-label">ID:</label><span>{{service.id}}</span>
+        <label class="service-details-service-content-label">Name:</label><span>{{service.name}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="object-children-records">
+    <label>Equipment</label>
+    <div *ngIf="equipment" class="object-children-records-content">
+      <div *ngFor="let equip of equipment" class="object-children-record">
+        <div class="object-children-record-content">
+          <span class="child-status"
+                [ngClass]="{'fail': 2===equip.hardwareStatus?.id, 'normal': 1===equip.hardwareStatus?.id}"></span>
+          <span class="service-details-equipment-line-name">{{equip.name}}</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

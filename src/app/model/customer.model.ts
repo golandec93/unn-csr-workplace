@@ -1,4 +1,9 @@
-export class Customer {
+import {Status} from './status.model';
+
+export interface Customer {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  customerStatus: Status;
 }

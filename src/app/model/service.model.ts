@@ -1,13 +1,11 @@
-export class Service {
+import {Status} from './status.model';
+import {Equipment} from './equipment.model';
+import {Customer} from './customer.model';
+
+export interface Service {
   id: number;
   name: string;
-  customerId: number;
-
-  static of(id: number, name: string, customerId: number): Service {
-    const newInstance: Service = new Service();
-    newInstance.id = id;
-    newInstance.customerId = customerId;
-    newInstance.name = name;
-    return newInstance;
-  }
+  serviceStatus: Status;
+  hardwares: Equipment[];
+  customer: Customer;
 }

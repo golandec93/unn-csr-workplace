@@ -1,26 +1,43 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ServicesService} from '../services.service';
 import {Service} from '../model/service.model';
-import {randomId} from '../stub-utils';
 import {Equipment} from '../model/equipment.model';
 import {EquipmentService} from '../equipment.service';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Observable} from 'rxjs';
+import {share, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-service-details',
   templateUrl: './service-details.component.html',
-  styleUrls: ['./service-details.component.css']
+  styleUrls: ['./service-details.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ServiceDetailsComponent implements OnInit {
 
-  constructor(private equipmentService: EquipmentService, private servicesService: ServicesService) {
+  constructor(private equipmentService: EquipmentService,
+              private servicesService: ServicesService,
+              private activatedRoute: ActivatedRoute) {
   }
 
-  equipment: Equipment[];
-  service: Service;
+  protected equipment: Equipment[];
+  protected service: Service;
+
+  private service$: Observable<Service>;
+  private equipment$: Observable<Equipment[]>;
 
   ngOnInit() {
-    this.service = this.servicesService.getServiceById(randomId());
-    this.equipment = this.equipmentService.getEquipmentByServiceId(this.service.id);
+    this.service$ = this.activatedRoute.paramMap.pipe(
+      switchMap((params: ParamMap): Observable<Service> => {
+        const serviceId = params.get('serviceId');
+        return this.servicesService.getServiceById(parseInt(serviceId, 10));
+      }),
+      share());
+    this.service$.subscribe(service => this.service = service);
+    this.equipment$ = this.service$.pipe(
+      switchMap(service => this.equipmentService.getEquipmentByServiceId(service.id)),
+      tap(console.log),
+      share());
+    this.equipment$.subscribe(equipment => this.equipment = equipment);
   }
-
 }

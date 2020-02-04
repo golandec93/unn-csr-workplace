@@ -1,0 +1,97 @@
+.header {
+  background: var(--inactive-color);
+  font-size: 30px;
+  height: 80px;
+  color: var(--background-dark);
+  padding: 30px 0 0 20px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  min-width: 800px;
+  background: var(--background-dark);
+  height: calc(100vh - 145px);
+  padding: 20px;
+  border-radius: 2px;
+
+}
+.app {
+  font-family: Arial;
+}
+
+.app a, .app a:visited, .app a:hover, .app a:active{
+  text-decoration: none !important;
+}
+.component {
+  background: var(--background-light);
+  padding: 20px 40px 35px 40px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-family: Arial;
+  text-decoration: none;
+}
+
+.object-header {
+  font-size: 20px;
+  line-height: 45px;
+  border-bottom: 1px solid var(--background-dark);
+  margin-bottom: 15px;
+}
+
+.object-children-records{
+  margin: 15px 0 0 0;
+}
+
+.object-children-records-content {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.object-children-record {
+  margin: 5px 5px 5px 5px;
+  background: var(--background-light);
+  border-bottom: 1px solid var(--background-dark);;
+  border-radius: 4px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.object-children-record-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.object-details-content {
+  background: var(--background-light);
+  margin: 5px 5px 5px 5px;
+  height: 60px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.object-details-grid {
+  margin: 8px 20px 8px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 8px;
+}
+
+.child-status {
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  border: 1px solid var(--background-dark);
+  display: inline-block;
+}
+
+.child-status.fail {
+  background: var(--status-bad-color);
+}
+
+.child-status.normal {
+  background: var(--status-good-color);
+}

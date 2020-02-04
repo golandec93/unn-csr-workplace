@@ -8,14 +8,12 @@ export interface Theme {
 export const light: Theme = {
   name: 'light',
   properties: {
-    '--main-color': '#9BC3D3',
-    '--accent-color': '#8BB8CE',
-    '--accent-color2': '#97D0F0',
-    '--background-dark': '#eff3f4',
-    '--background-light': '#FFFFFF',
+    '--grey-light': '#FAFAFA',
+    '--bg-white': '#FFFFFF',
     '--status-bad-color': '#EAC4D5',
-    '--inactive-color': '#939DA6',
-    '--status-good-color': '#D6EADF'
+    '--bg-blue-dark': '#1976d2',
+    '--status-good-color': '#D6EADF',
+    '--grey-dark': '#616161'
   }
 };
 

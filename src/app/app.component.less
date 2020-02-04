@@ -1,8 +1,8 @@
 .header {
-  background: var(--inactive-color);
+  background: var(--bg-blue-dark);
   font-size: 30px;
   height: 80px;
-  color: var(--background-dark);
+  color: var(--grey-light);
   padding: 30px 0 0 20px;
 }
 
@@ -10,21 +10,47 @@
   margin: 0 auto;
   max-width: 800px;
   min-width: 800px;
-  background: var(--background-dark);
-  height: calc(100vh - 145px);
+  background: var(--grey-light);
+  height: calc(100vh - 170px);
   padding: 20px;
   border-radius: 2px;
 
 }
+
 .app {
   font-family: Arial;
+  color: var(--grey-dark);
+  background: var(--grey-light);
 }
 
-.app a, .app a:visited, .app a:hover, .app a:active{
-  text-decoration: none !important;
+.app a, .app a:visited, .app a:hover, .app a:active {
+  cursor: pointer;
+  color: var(--bg-blue-dark);
+  text-decoration: none;
 }
+
+.app button {
+  padding: 5px;
+  height: 34px;
+  min-width: 100px;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  background: var(--bg-blue-dark);
+  color: var(--bg-white);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.app a:hover {
+  opacity: 0.8;
+}
+
 .component {
-  background: var(--background-light);
+  background: var(--bg-white);
   padding: 20px 40px 35px 40px;
   border-radius: 2px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -36,11 +62,11 @@
 .object-header {
   font-size: 20px;
   line-height: 45px;
-  border-bottom: 1px solid var(--background-dark);
+  border-bottom: 1px solid var(--grey-light);
   margin-bottom: 15px;
 }
 
-.object-children-records{
+.object-children-records {
   margin: 15px 0 0 0;
 }
 
@@ -50,8 +76,8 @@
 
 .object-children-record {
   margin: 5px 5px 5px 5px;
-  background: var(--background-light);
-  border-bottom: 1px solid var(--background-dark);;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--grey-light);;
   border-radius: 4px;
   height: 40px;
   display: flex;
@@ -65,7 +91,7 @@
 }
 
 .object-details-content {
-  background: var(--background-light);
+  background: var(--bg-white);
   margin: 5px 5px 5px 5px;
   height: 60px;
   border-radius: 4px;
@@ -73,6 +99,7 @@
   align-items: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .object-details-grid {
   margin: 8px 20px 8px 20px;
   display: grid;
@@ -84,7 +111,7 @@
   width: 14px;
   height: 14px;
   border-radius: 7px;
-  border: 1px solid var(--background-dark);
+  border: 1px solid var(--grey-light);
   display: inline-block;
 }
 

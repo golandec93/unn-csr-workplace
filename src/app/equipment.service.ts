@@ -17,4 +17,9 @@ export class EquipmentService {
     return this.httpClient.get<DataAppResponse<Equipment>>(environment.backend + `/services/${serviceId}/hardwares`)
       .pipe(map(response => response.content));
   }
+
+  public markAsBroken(hardwareId: number): Observable<any> {
+    return this.httpClient.get<any>(environment.backend + '/hardwares/search/setHardwareStatusFailByHardware_Id',
+      {params: {hardwareId: '' + hardwareId}});
+  }
 }

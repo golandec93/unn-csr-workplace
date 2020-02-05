@@ -15,7 +15,10 @@
         <div *ngFor="let service of services" class="object-children-record">
           <div class="object-children-record-content">
             <span class="child-status"
-                  [ngClass]="{'fail': 2===service.serviceStatus?.id, 'normal': 1===service.serviceStatus?.id}"></span>
+                  [ngClass]="{
+                  'fail': 2===service.serviceStatus?.id,
+                  'normal': 1===service.serviceStatus?.id,
+                  'maintenance': 3===service.serviceStatus?.id}"></span>
             <span class="customer-details-services-service-name"><a
               routerLink="/service/{{service.id}}">{{service.name}}</a></span>
           </div>

@@ -8,6 +8,9 @@
         <label class="service-details-service-content-label">ID:</label><span>{{service.id}}</span>
         <label class="service-details-service-content-label">Name:</label><span>{{service.name}}</span>
       </div>
+      <div class="object-operations">
+        <button (click)="markServiceAsBroken()" [disabled]="service.serviceStatus.id === 2">It's broken!</button>
+      </div>
     </div>
   </div>
   <div class="object-children-records">
@@ -16,7 +19,11 @@
       <div *ngFor="let equip of equipment" class="object-children-record">
         <div class="object-children-record-content">
           <span class="child-status"
-                [ngClass]="{'fail': 2===equip.hardwareStatus?.id, 'normal': 1===equip.hardwareStatus?.id}"></span>
+                [ngClass]="{
+                'fail': 2===equip.hardwareStatus?.id,
+                'normal': 1===equip.hardwareStatus?.id,
+                'maintenance': 3===equip.hardwareStatus?.id
+                }"></span>
           <span class="service-details-equipment-line-name">{{equip.name}}</span>
         </div>
       </div>

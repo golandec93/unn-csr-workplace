@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backend: 'https://nnsu-nc.herokuapp.com'
+  backend: 'https://mk-nc.herokuapp.com'
 };
 
 /*
